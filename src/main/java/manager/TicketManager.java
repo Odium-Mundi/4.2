@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import repository.TicketRepository;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,18 +32,19 @@ public class TicketManager {
         repository.save(item);
     }
 
-    public PurchaseTicket[] getAll(String from, String to) {
+    public PurchaseTicket[] getAll(String from, String to, Comparator<PurchaseTicket> comparator) {
         PurchaseTicket[] result = new PurchaseTicket[0];
 
-        for (PurchaseTicket purchaseTicket: repository.findAll()) {
+        for (PurchaseTicket purchaseTicket : repository.findAll()) {
             if (matches(purchaseTicket, from, to)) {
-                PurchaseTicket[] tmp = new  PurchaseTicket[result.length + 1];
+                PurchaseTicket[] tmp = new PurchaseTicket[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = purchaseTicket;
                 result = tmp;
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result, comparator);
         return result;
     }
+
 }
