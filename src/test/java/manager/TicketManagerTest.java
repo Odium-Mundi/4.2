@@ -16,7 +16,7 @@ class TicketManagerTest {
 
 
     private PurchaseTicket purchaseTicket1 = new PurchaseTicket(1, 1200, "LED", "MOW", 120);
-    private PurchaseTicket purchaseTicket2 = new PurchaseTicket(2, 1400, "MOW", "LED", 120);
+    private PurchaseTicket purchaseTicket2 = new PurchaseTicket(2, 1400, "MOW", "LED", 130);
     private PurchaseTicket purchaseTicket3 = new PurchaseTicket(3, 1100, "LED", "MOW", 420);
 
     @BeforeEach
@@ -36,7 +36,7 @@ class TicketManagerTest {
 
     @Test
     void shouldGetFromXtoY() {
-        PurchaseTicket[] expected = new PurchaseTicket[]{purchaseTicket3, purchaseTicket1};
+        PurchaseTicket[] expected = new PurchaseTicket[]{purchaseTicket1, purchaseTicket3};
         PurchaseTicket[] actual = manager.getAll("LED", "MOW", comparator);
 
         assertArrayEquals(expected, actual);
