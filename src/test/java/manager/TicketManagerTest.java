@@ -12,9 +12,9 @@ class TicketManagerTest {
     private TicketRepository repository = new TicketRepository();
     private TicketManager manager = new TicketManager(repository);
 
-    private PurchaseTicket purchaseTicket1 = new PurchaseTicket(1,1000,"LED","MOW",120);
-    private PurchaseTicket purchaseTicket2 = new PurchaseTicket(2,1000,"MOW","LED",120);
-    private PurchaseTicket purchaseTicket3 = new PurchaseTicket(3,1000,"LED","MOW",420);
+    private PurchaseTicket purchaseTicket1 = new PurchaseTicket(1,1600,"LED","MOW",120);
+    private PurchaseTicket purchaseTicket2 = new PurchaseTicket(2,1200,"MOW","LED",120);
+    private PurchaseTicket purchaseTicket3 = new PurchaseTicket(3,1400,"LED","MOW",420);
 
     @BeforeEach
     public void shouldSave() {
@@ -33,7 +33,7 @@ class TicketManagerTest {
 
     @Test
     void shouldGetFromXtoX() {
-        PurchaseTicket[] expected = new PurchaseTicket[]{purchaseTicket1,purchaseTicket3};
+        PurchaseTicket[] expected = new PurchaseTicket[]{purchaseTicket3,purchaseTicket1};
         PurchaseTicket[] actual = manager.getAll("LED", "MOW");
 
         assertArrayEquals(expected,actual);

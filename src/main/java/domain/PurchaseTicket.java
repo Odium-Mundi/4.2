@@ -16,7 +16,7 @@ public class PurchaseTicket implements Comparable<PurchaseTicket> {
 
     @Override
     public int compareTo(PurchaseTicket purchaseTicket) {
-        return id - purchaseTicket.id;
+        return price - purchaseTicket.price;
     }
 
     public int getId() {

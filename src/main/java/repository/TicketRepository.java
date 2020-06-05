@@ -29,8 +29,7 @@ public class TicketRepository {
     }
 
     public void removeAll() {
-        PurchaseTicket[] tmp = new PurchaseTicket[0];
-        items = tmp;
+        items = new PurchaseTicket[0];
     }
 
     public void removeById(int id) {
